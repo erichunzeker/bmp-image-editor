@@ -12,8 +12,8 @@ int main() {
     char rock[]="rock";
     char paper[]="paper";
     char scissors[]="scissors";
-
-
+    int playerScore = 0;
+    int compScore = 0;
 
     srand((unsigned int)time(NULL));
 
@@ -25,15 +25,12 @@ int main() {
 
         scanf("%s", &str);
     }while (strcmp(str,yes)!=0 && strcmp(str,no)!=0);
-
+    
     if(strcmp(str,no)==0)
     {
         printf("Goodbye"); //if player says no, quit
         return 0;
     }
-
-    int playerScore = 0;
-    int compScore = 0;
 
     while(playerScore < 3 && compScore < 3)
     {
@@ -60,12 +57,48 @@ int main() {
 
         if(strcmp(str, compMove)==0)
             printf("It is a tie. \n");
-        else if()
 
+
+        else if(strcmp(compMove, rock)==0 && strcmp(str, paper)==0)
+        {
+            printf("You win this game! \n");
+            playerScore++;
+        }
+        else if(strcmp(compMove, paper)==0 && strcmp(str, scissors)==0)
+        {
+            printf("You win this game! \n");
+            playerScore++;
+        }
+        else if(strcmp(compMove, scissors)==0 && strcmp(str, rock)==0)
+        {
+            printf("You win this game! \n");
+            playerScore++;
+        }
+
+        else if(strcmp(compMove, paper)==0 && strcmp(str, rock)==0)
+        {
+            printf("You lose this game! \n");
+            compScore++;
+        }
+        else if(strcmp(compMove, scissors)==0 && strcmp(str, paper)==0)
+        {
+            printf("You lose this game! \n");
+            compScore++;
+        }
+        else if(strcmp(compMove, rock)==0 && strcmp(str, scissors)==0)
+        {
+            printf("You lose this game! \n");
+            compScore++;
+        }
+
+        printf("The score is now you: %d computer: %d\n", playerScore, compScore);
 
     }
 
-    /*printf("Entered string is %s \n", str);*/
+    if(playerScore > compScore)
+        printf("\nYou win the game\n");
+    else
+        printf("\nYou lose the game\n");
 
     return 0;
 }
