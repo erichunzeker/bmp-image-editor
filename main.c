@@ -60,7 +60,6 @@ int main() {
             if (strcmp(str, compMove) == 0)
                 printf("It is a tie. \n");
 
-
             else if (strcmp(compMove, rock) == 0 && strcmp(str, paper) == 0) {
                 printf("You win this game! \n");
                 playerScore++;
